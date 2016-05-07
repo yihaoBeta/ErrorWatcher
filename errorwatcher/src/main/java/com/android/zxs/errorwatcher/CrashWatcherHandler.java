@@ -61,7 +61,7 @@ public class CrashWatcherHandler implements
             jObjectLogMsg.put("AppVersion", Utils.getAppVersion(activity));
             jObjectLogMsg.put("isTablet", Utils.isTablet(activity));
             jObjectLogMsg.put("Orientation", Utils.getScreenOrientation(activity));
-            jObjectLogMsg.put("ScreenLayout", Utils.getScreenLayout(activity));
+            jObjectLogMsg.put("ScreenSize", Utils.getScreenSize(activity));
             jObjectLogMsg.put("VMHeapSize", Utils.ConvertSize(Runtime.getRuntime().totalMemory()));
             jObjectLogMsg.put("AllocatedVMSize", Utils.ConvertSize(Runtime.getRuntime().freeMemory()));
             jObjectLogMsg.put("MaxVMHeapSize", Utils.ConvertSize((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory())));
@@ -78,7 +78,6 @@ public class CrashWatcherHandler implements
             jObjectLogMsg.put("isRooted", Utils.isRooted());
             jObjectLogMsg.put("Local", new Locale("", activity.getResources().getConfiguration().locale.getCountry()).getDisplayCountry());
             jObjectLogMsg.put("ErrorMessage", exception.getMessage());
-            jObjectLogMsg.put("LocalizedMessage", exception.getLocalizedMessage());
             jObjectLogMsg.put("ErrorCause", exception.getCause());
             jObjectLogMsg.put("StackTrace", stackTrace.toString());
         } catch (JSONException e) {

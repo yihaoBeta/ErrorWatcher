@@ -38,6 +38,7 @@ public class Utils {
             info = manager.getPackageInfo(con.getPackageName(), 0);
         } catch (PackageManager.NameNotFoundException e) {
             Log.e(TAG, "Name not found Exception");
+            return null;
         }
         return info.versionName;
     }
@@ -48,6 +49,7 @@ public class Utils {
         return xlarge || large;
     }
 
+    @SuppressWarnings("deprecated")
     public static boolean isInternetConnecting(Context context) {
         boolean isConnecting = false;
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
@@ -77,7 +79,7 @@ public class Utils {
         }
     }
 
-    public static String getScreenLayout(Activity act) {
+    public static String getScreenSize(Activity act) {
         int screenSize = act.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
         switch (screenSize) {
             case Configuration.SCREENLAYOUT_SIZE_LARGE:
